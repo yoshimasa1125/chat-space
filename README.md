@@ -2,49 +2,54 @@
 
 ## usersテーブル
 
-|Column     |Type   |Options    |
-|-----------|-------|-----------|
-|user       |string |null: false|
-|mail_adress|varchar|null: false|
+|Column     |Type   |Options                               |
+|-----------|-------|--------------------------------------|
+|name       |string |null: false ,index: true ,unique: true|
 
 
 Association
-has_many :relations
-has_many :groups, through: :relations
+has_many :user_groups
+has_many :groups, through: :user_groups
 has_many :messages
 
 
 ## messagesテーブル
 
-|Column |Type   |Options   |
-|-------|-------|----------|
-|message|text   |null: true|
-|image  |string |null: true|
-
+|Column  |Type       |Options                       |
+|--------|-----------|------------------------------|
+|content |text       |null: true                    |
+|image   |string     |null: true                    |
+|user    |references |null: false, foreign_key: true|
+|group   |references |null: false, foreign_key: true|
 
 Association
-belongs_to :users
+belongs_to :user
+belongs_to :group
+
+
 
 ## groupsテーブル
 
 |Column  |Type   |Options    |
 |--------|-------|-----------|
-|group   |string |null: false|
+|name    |string |null: false|
 
 
 Association
-has_many :relations
-has_many :users, through: :relations
+has_many :user_groups
+has_many :users, through: :user_groups
+has_many :messages
 
 
 
 
-## relationsテーブル
+## user_groupsテーブル
 
 |Column|Type      |Options                       |
 |------|----------|------------------------------|
 |user  |references|null: false, foreign_key: true|
 |group |references|null: false, foreign_key: true|
+
 
 Association
 belongs_to :user
