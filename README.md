@@ -8,7 +8,10 @@
 |mail_adress|varchar|null: false|
 
 
-
+Association
+has_many :relations
+has_many :groups, through: :relations
+has_many :messages
 
 
 ## messagesテーブル
@@ -19,11 +22,20 @@
 |image  |string |null: true|
 
 
+Association
+belongs_to :users
+
 ## groupsテーブル
 
 |Column  |Type   |Options    |
 |--------|-------|-----------|
 |group   |string |null: false|
+
+
+Association
+has_many :relations
+has_many :users, through: :relations
+
 
 
 
@@ -33,3 +45,7 @@
 |------|----------|------------------------------|
 |user  |references|null: false, foreign_key: true|
 |group |references|null: false, foreign_key: true|
+
+Association
+belongs_to :user
+belongs_to :group
