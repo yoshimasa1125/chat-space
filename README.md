@@ -17,8 +17,8 @@ has_many :messages
 
 |Column  |Type       |Options                       |
 |--------|-----------|------------------------------|
-|content |text       |null: true                    |
-|image   |string     |null: true                    |
+|content |text       |                              |
+|image   |string     |                              |
 |user    |references |null: false, foreign_key: true|
 |group   |references |null: false, foreign_key: true|
 
