@@ -1,0 +1,23 @@
+.chat_main
+  .main_header
+    .main_header_leftbox
+      .main_header_leftbox_currentgroup 魚
+      .main_header_leftbox_currentmenber Member : yoshimasa
+    .main_header_rightbox
+      .main_header_rightbox_btn Edit
+  .main_message
+    .main_message_box
+      .main_message_upperbox
+        .main_talker yoshimasa
+        .main_message_date 2019/03/15(Sut) 13:03:47
+      .main_text 鯖
+  .form
+    %form{class: "input_area"}
+      .input_box
+        .input_text
+          Type a message
+        .input_icon
+          %label{class: "fa fa-image"}
+            %input{:class => "upload", :type => "file", :accept => "image/*" }
+      .submit_button
+        Send
