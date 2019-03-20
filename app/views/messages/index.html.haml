@@ -1,25 +1,25 @@
 .wrapper
-  .chat_side
-    .side_header
-      .side_header_box
-        .side_header_box_name 名前
-        .side_header_box_menu
+  .side
+    .side-header
+      .side-header__box
+        .side-header__box_name 名前
+        .side-header__box_menu
           %i{class: "fa fa-edit"}
           %i{class: "fa fa-cog"}
-    .groups
-      .group
-        .group_name
+    .side-groups
+      .side-group
+        .side-groups__group_name
           魚
-        .group_message
+        .side-groups__group_message
           秋刀魚
-      .group
-        .group_name
+      .side-group
+        .side-groups__group_name
           魚
-        .group_message
+        .side-groups__group_message
           秋刀魚
-      .group
-        .group_name
+      .side-group
+        .side-groups__group_name
           魚
-        .group_message
+        .side-groups__group_message
           秋刀魚
   = render 'messages/main'
