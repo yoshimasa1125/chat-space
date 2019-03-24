@@ -1,25 +1,25 @@
 .wrapper
-  .side
-    .side-header
-      .side-header__box
-        .side-header__box_name 名前
-        .side-header__box_menu
-          %i{class: "fa fa-edit"}
-          %i{class: "fa fa-cog"}
-    .side-groups
-      .side-group
-        .side-groups__group_name
-          魚
-        .side-groups__group_message
-          秋刀魚
-      .side-group
-        .side-groups__group_name
-          魚
-        .side-groups__group_message
-          秋刀魚
-      .side-group
-        .side-groups__group_name
-          魚
-        .side-groups__group_message
-          秋刀魚
-  = render 'messages/main'
+  = render "shared/side_bar"
+  .main
+    .main-header
+      .leftbox
+        .leftbox__currentgroup 魚
+        .leftbox__currentmenber Member : yoshimasa
+      .rightbox
+        .rightbox__btn Edit
+    .main-message
+      .main-message__box
+        .upperbox
+          .upperbox__talker yoshimasa
+          .upperbox__date 2019/03/15(Sut) 13:03:47
+        .text 鯖
+    .main-form
+      %form{class: "input-area"}
+        .inputbox
+          .inputbox__text
+            Type a message
+          .inputbox__icon
+            %label{class: "fa fa-image"}
+              %input{:class => "upload", :type => "file", :accept => "image/*" }
+        .inputbutton
+          Send

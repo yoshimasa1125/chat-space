@@ -22,9 +22,13 @@
           padding: 0;
         }
         &_menu{
-        .fa-edit{
-        	color: white;
-        }
+          color: white;
+          .list{
+            color: white;
+            .icon{
+              color: white;
+            }
+          }
         }
       }
     }
