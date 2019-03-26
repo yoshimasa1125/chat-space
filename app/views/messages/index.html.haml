@@ -8,7 +8,7 @@
         .leftbox__currentgroup 魚
         .leftbox__currentmenber Member : yoshimasa
       .rightbox
-        .rightbox__btn Edit
+        = link_to "Edit", edit_group_path(@group), class: 'rightbox__btn'
 
     .main-message
       = render partial: 'message', collection: @messages

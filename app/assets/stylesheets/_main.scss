@@ -21,15 +21,19 @@
         }
       }
       .rightbox{
-        box-sizing: border-box;
-        color: #38aef0;
-        height: 40px;
+        height:40px;
         line-height: 40px;
-        float: right;
+        background-color: white;
+        position: fixed;
+        right: 40px;
+        bottom: calc(100vh - 65px);
         &__btn{
+          display: block;
+          height: 100%;
+          color: #38aef0;
           padding: 0 20px;
-          margin-top: 28px;
           border: solid 1px #38aef0;
+          text-decoration: none;
         }
       }
     }
@@ -80,6 +84,7 @@
         margin: 0, auto;
           &__image{
             display: inline-block;
+            line-height: 50px;
             .icon{
               font-size: 1.3rem;
             }
