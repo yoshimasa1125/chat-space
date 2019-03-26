@@ -1,4 +1,5 @@
 .wrapper
+
   = render 'shared/side_bar'
 
   .main
@@ -8,19 +9,15 @@
         .leftbox__currentmenber Member : yoshimasa
       .rightbox
         .rightbox__btn Edit
+
     .main-message
-      .main-message__box
-        .upperbox
-          .upperbox__talker yoshimasa
-          .upperbox__date 2019/03/15(Sut) 13:03:47
-        .text 鯖
-    .main-form
-      %form{class: "input-area"}
-        .inputbox
-          .inputbox__text
-            Type a message
-          .inputbox__icon
-            %label{class: "fa fa-image"}
-              %input{:class => "upload", :type => "file", :accept => "image/*" }
-        .inputbutton
-          Send
+      = render partial: 'message', collection: @messages
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: ' type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

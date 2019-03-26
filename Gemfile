@@ -56,3 +56,6 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'kaminari'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
+
