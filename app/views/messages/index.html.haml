@@ -5,8 +5,9 @@
   .main
     .main-header
       .leftbox
-        .leftbox__currentgroup 魚
-        .leftbox__currentmenber Member : yoshimasa
+        .leftbox__currentgroup
+          = @group.name
+        .leftbox__currentmenber Member: yoshimasa
       .rightbox
         = link_to "Edit", edit_group_path(@group), class: 'rightbox__btn'
 
@@ -15,9 +16,9 @@
 
     .form
       = form_for [@group, @message], id: "new_message" do |f|
-        = f.text_field :content, class: 'form__message', placeholder: ' type a message'
-        .form__mask
-          = f.label :image, class: 'form__mask__image' do
+        = f.text_field :content, class: 'new_message__field', placeholder: ' type a message'
+        .mask
+          = f.label :image, class: 'mask__image' do
             = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+        = f.submit 'Send', class: 'new_message__submit'

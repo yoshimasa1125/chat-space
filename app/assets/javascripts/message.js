@@ -1,6 +1,6 @@
-// 参照コード
 $(function() {
   function buildHTML(message){
+
     var html = `<div class="main-message__box">
                   <div class="upperbox">
                     <div class="upperbox__talker">
@@ -18,6 +18,8 @@ $(function() {
 
     return html;
   }
+  // var position = $("form").offset().top;
+  $('.main-message').animate({scrollTop: $(".main-message")[0].scrollHeight});
   $("#new_message").on('submit', function(e) {
   	e.preventDefault();
     var formData = new FormData(this);
@@ -37,6 +39,7 @@ $(function() {
     })
   });
 });
+
 
 
 
