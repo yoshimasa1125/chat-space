@@ -1,25 +1,24 @@
 .wrapper
-  .side
-    .side-header
-      .side-header__box
-        .side-header__box_name 名前
-        .side-header__box_menu
-          %i{class: "fa fa-edit"}
-          %i{class: "fa fa-cog"}
-    .side-groups
-      .side-group
-        .side-groups__group_name
-          魚
-        .side-groups__group_message
-          秋刀魚
-      .side-group
-        .side-groups__group_name
-          魚
-        .side-groups__group_message
-          秋刀魚
-      .side-group
-        .side-groups__group_name
-          魚
-        .side-groups__group_message
-          秋刀魚
-  = render 'messages/main'
+
+  = render 'shared/side_bar'
+
+  .main
+    .main-header
+      .leftbox
+        .leftbox__currentgroup
+          = @group.name
+        .leftbox__currentmenber Member:まさし
+      .rightbox
+        = link_to "Edit", edit_group_path(@group), class: 'rightbox__btn'
+
+    .main-message
+      = render partial: 'message', collection: @messages
+
+    .form
+      = form_for [@group, @message], id: "new_message" do |f|
+        = f.text_field :content, class: 'new_message__field', placeholder: ' type a message'
+        .mask
+          = f.label :image, class: 'mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'new_message__submit'

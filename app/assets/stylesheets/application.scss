@@ -1,5 +1,9 @@
+@import "config/colors";
 @import "./reset";
+@import "./wrapper";
 @import "./leftside";
 @import "./font-awesome";
 @import "./main";
-@import "./wrapper";
+@import "modules/flash";
+@import "modules/user";
+@import "modules/group";
