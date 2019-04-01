@@ -38,6 +38,9 @@ $(function() {
       $('#new_message').val('');
       // 連続投稿
       $('.new_message__submit').attr('disabled', false);
-    });
+    })
+     .fail(function(){
+      alert('エラー');
+    })
   });
 });
