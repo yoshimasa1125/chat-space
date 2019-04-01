@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     if @message.save
        respond_to do |format|
-      format.html { redirect_to group_messages_path(params[:group_id])}
+      format.html { redirect_to group_messages_path(params[:group_id]),notice: "メッセージが送信されました"}
       format.json
       end
     else
@@ -27,6 +27,12 @@ class MessagesController < ApplicationController
   end
 
   def set_group
+    # グループモデル（クラス）の中でmessagesとアソシエーションを組み、group_idを探す
     @group = Group.find(params[:group_id])
   end
 end
+
+
+
+# なぜクラスはインスタンス化しなければいけないのか→インスタンス変数を定義するため？
+

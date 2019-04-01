@@ -1,3 +1,4 @@
+
 $(function() {
   function buildHTML(message){
 
@@ -9,21 +10,20 @@ $(function() {
                     <div class="upperbox__date">
                       ${message.created_at}
                     </div>
-                   </div>
+                  </div>
                   <div class="text">
-                     <% if message.content.present? %>
-                        <% p.lower-message__content %>
-                            ${message.content}
-                  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?`
-
+                      ${message.content}
+                  </div>`
     return html;
   }
-  // var position = $("form").offset().top;
-  $('.main-message').animate({scrollTop: $(".main-message")[0].scrollHeight});
+
   $("#new_message").on('submit', function(e) {
   	e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    // 下までスクロール
+    $('.main-message').animate({scrollTop: $(".main-message")[0].scrollHeight});
+    // console.log(url)
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -32,17 +32,12 @@ $(function() {
       processData: false,
       contentType: false,
     })
-    .done(function(data){
+     .done(function(data){
       var html = buildHTML(data);
-      $('.main-message').append(html)
-      $('#new_message').val('')
-    })
+      $('.main-message').append(html);
+      $('#new_message').val('');
+      // 連続投稿
+      $('.new_message__submit').attr('disabled', false);
+    });
   });
 });
-
-
-
-
-
-
-
