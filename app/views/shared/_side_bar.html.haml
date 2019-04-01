@@ -9,15 +9,4 @@
             = fa_icon 'pencil-square-o', class: 'icon'
           = link_to edit_user_path(current_user) do
             = fa_icon 'cog', class: 'icon'
-  .side-groups
-    - current_user.groups.each do |group|
-      .side-group
-        = link_to group_messages_path(group) do
-          .side-group__group_name
-            = group.name
-          .side-group__group_message
-            = group.show_last_message
-
-
-
-
+  = render 'shared/side-groups'
