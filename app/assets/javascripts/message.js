@@ -20,9 +20,7 @@ $(function() {
   $("#new_message").on('submit', function(e) {
   	e.preventDefault();
     var formData = new FormData(this);
-    // 下までスクロール
     $('.main-message').animate({scrollTop: $(".main-message")[0].scrollHeight});
-    // console.log(url)
     var url = $(this).attr('action');
     $.ajax({
       url: url,
@@ -36,7 +34,6 @@ $(function() {
       var html = buildHTML(data);
       $('.main-message').append(html);
       $('#new_message').val('');
-      // 連続投稿
       $('.new_message__submit').attr('disabled', false);
     })
      .fail(function(){
