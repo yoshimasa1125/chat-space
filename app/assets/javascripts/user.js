@@ -20,6 +20,16 @@ $(function() {
                    </div>`
        return html;
   }
+
+  var search_list = $('#user-search-result');
+
+  function errorHTML(missmatch){
+       var html = `<div class="chat-group-user clearfix">
+                     <p class="chat-group-user__name">${missmatch}</p>
+                   </div>`
+       search_list.append(html);
+  }
+
   $("#chat-group-users").on("click","a",function() {
     $(this).parent().remove();
   });
@@ -48,9 +58,8 @@ $(function() {
         users.forEach(function(user){
           appendbuildHTML(user);
         });
-      }
-      else {
-        appendHTML("一致する名前はありません");
+      }else {
+        errorHTML("一致する名前はありません");
       }
     })
     .fail(function() {
