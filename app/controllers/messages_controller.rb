@@ -27,12 +27,7 @@ class MessagesController < ApplicationController
   end
 
   def set_group
-    # グループモデル（クラス）の中でmessagesとアソシエーションを組み、group_idを探す
     @group = Group.find(params[:group_id])
   end
 end
-
-
-
-# なぜクラスはインスタンス化しなければいけないのか→インスタンス変数を定義するため？
 
