@@ -1,7 +1,7 @@
 $(function() {
   function autoMessageHTML(message){
 
-  var img = (messages.image !== null) ? `<img class="lower-message__image", src="${message.image}">` : ""
+  var img = (message.image != null) ? `<img class= "lower-message__image", src="${message.image}">` : ''
 	// if (message.image !== null) {
 	//    img = `<img class="lower-message__image", src="${message.image}">`
 	// }

@@ -38,7 +38,7 @@ $(function() {
      .done(function(data){
       var html = buildMessageHTML(data);
       $('.main-message').append(html);
-      $('.new_message__field').val('');
+      $('.form__field').val('');
       $('#message_image').val('');
     })
      .fail(function(){
