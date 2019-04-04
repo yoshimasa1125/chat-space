@@ -7,7 +7,10 @@
       .leftbox
         .leftbox__currentgroup
           = @group.name
-        .leftbox__currentmenber Member:まさし
+        .leftbox__currentmenber
+          - @group.users.each do |user|
+            %span
+              = user.name
       .rightbox
         = link_to "Edit", edit_group_path(@group), class: 'rightbox__btn'
 

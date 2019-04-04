@@ -1,8 +1,11 @@
 
 $(function() {
-  function buildHTML(message){
-
-    var html = `<div class="main-message__box">
+  function buildMessageHTML(message){
+  var img = ""
+    if (message.image !== null) {
+        img = `<img class="lower-message__image", src="${message.image}">`
+    }
+    var html = `<div class="main-message__box" data-id=${message.id}>
                   <div class="upperbox">
                     <div class="upperbox__talker">
                       ${message.user_name}
@@ -12,10 +15,12 @@ $(function() {
                     </div>
                   </div>
                   <div class="text">
-                      ${message.content}
-                  </div>`
+                    ${message.content}
+                  </div>
+                    ${img}
+                </div>`
     return html;
-  }
+  };
 
   $("#new_message").on('submit', function(e) {
   	e.preventDefault();
@@ -31,13 +36,16 @@ $(function() {
       contentType: false,
     })
      .done(function(data){
-      var html = buildHTML(data);
+      var html = buildMessageHTML(data);
       $('.main-message').append(html);
-      $('#new_message').val('');
-      $('.new_message__submit').attr('disabled', false);
+      $('.new_message__field').val('');
+      $('#message_image').val('');
     })
      .fail(function(){
       alert('エラー');
     })
+     .always(function(){
+       $('.new_message__submit').attr('disabled', false);
+     })
   });
 });
