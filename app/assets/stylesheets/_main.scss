@@ -69,17 +69,18 @@
       background-color: #ddd;
       padding: 20px 50px 20px 40px;
       box-sizing: border-box;
-      &__field{
-        width: calc(100% - 170px);
-        height: 50px;
-        float: left;
-        border: none;
-        }
-        &__mask{
-          float: left;
+       &__mask{
           height: 50px;
           padding-right: 10px;
+          width: calc(100% - 170px);
+          float: left;
+          background-color: white;
+          &__field{
+            border: none;
+            line-height: 50px;
+           }
           &__image{
+            float: right;
             line-height: 50px;
             font-size: 20px;
             }
